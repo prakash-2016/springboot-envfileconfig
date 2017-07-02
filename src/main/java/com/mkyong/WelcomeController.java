@@ -17,13 +17,22 @@ public class WelcomeController {
 	
 	@Value("#{mailfile['userHome']}")
     private String userHome;
+	
+	@Value("#{serverproperties['servername']}")
+    private String serverName;
+	
+	@Value("#{serverproperties['port']}")
+    private String port;
+
 
 
 	@RequestMapping("welcome/")
 	public String welcome(Map<String, Object> model) {
-		model.put("message", this.userHome);
-		System.out.println("Email ===="+this.userHome);
+		model.put("message", this.userHome + "Server Name:"+serverName + "Server Port:"+port);
+		
 		return "welcome";
 	}
+	
+	
 
 }

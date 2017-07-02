@@ -25,4 +25,11 @@ public class ApplicationConfig {
 	    return mailfile;
 	}
 
+	@Bean(name = "serverproperties")
+	public PropertiesFactoryBean mapper2() {
+	    PropertiesFactoryBean serverproperties = new PropertiesFactoryBean();
+	    serverproperties.setFileEncoding("UTF-8");
+	    serverproperties.setLocation(new FileSystemResource(envVar+"\\server.properties"));
+	    return serverproperties;
+	}
 }
